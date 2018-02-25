@@ -1,0 +1,21 @@
+{
+  "name": "getv",
+  "version": "1.0.0",
+  "description": "Get a value from an object by its path",
+  "main": "dist/getv.min.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "uglifyjs src/getv.js --o dist/getv.min.js"
+  },
+  "keywords": [],
+  "author": "Nir Elbaz <nire0510@gmail.com> (http://nirelbaz.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "mocha": "^5.0.1",
+    "uglify-es": "^3.3.9"
+  }
+}
