@@ -1,6 +1,9 @@
 # getv
 Get a value from an object by its path.
 
+## Intro
+Not only **getv** is a drop-in replacement of lodash.get method, but it does it twice as fast (check `benchmark.js` file) and also takes half of its size.
+
 ## Installation
 * npm - `npm i getv -S`
 
