@@ -13,10 +13,10 @@ const getv = require('getv');
 
 const object = {
   foo: {
-    bar: 1
+    bar: 1,
   },
   baz: 5,
-  lor: ['mir', 'dal']
+  lor: ['mir', 'dal'],
 };
 
 getv(object, 'none.bar');             // => undefined
