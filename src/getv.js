@@ -7,8 +7,8 @@
 function getv(object, path, fallback) {
   const dot = path.indexOf('.');
 
-  if (!object) {
-    return fallback || undefined;
+  if (typeof object !== 'object' || object === null) {
+    return fallback || object;
   }
 
   if (dot === -1) {

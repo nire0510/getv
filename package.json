@@ -1,6 +1,6 @@
 {
   "name": "getv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get a value from an object by its path",
   "main": "dist/getv.min.js",
   "scripts": {

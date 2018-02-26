@@ -7,11 +7,20 @@ const object = {
   },
   baz: 5,
   lor: ['mir', 'dal'],
+  tar: false,
 };
 
 describe('getv', () => {
   it('should return undefined when path is incorrect', () => {
     assert.equal(getv(object, 'none.bar'), undefined);
+  });
+
+  it('should return undefined when path is incorrect, even if it is deeply nested', () => {
+    assert.equal(getv(object, 'none.bar.nor.gar'), undefined);
+  });
+
+  it('should be able to return false', () => {
+    assert.equal(getv(object, 'tar'), false);
   });
 
   it('should return a default value when path is incorrect and a default value is specified', () => {
