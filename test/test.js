@@ -10,6 +10,13 @@ const object = {
   tar: false,
 };
 
+const array = [
+  {
+    id: 1,
+    name: 'Test',
+  },
+];
+
 describe('getv', () => {
   it('should return undefined when path is incorrect', () => {
     assert.equal(getv(object, 'none.bar'), undefined);
@@ -41,5 +48,13 @@ describe('getv', () => {
 
   it('should ignore default value if path is correct', () => {
     assert.equal(getv(object, 'lor.1'), 'dal');
+  });
+
+  it('should accept array', () => {
+    assert.equal(getv(array, '0.id'), 1);
+  });
+
+  it('should treat missing inner array as undefined', () => {
+    assert.equal(getv(array, '0.items', []).length, 0);
   });
 });

@@ -5,9 +5,9 @@
  * @returns {*} Returns the resolved value (undefined / fallback value / value found).
  */
 function getv(object, path, fallback) {
-  const dot = path.indexOf('.');
+  const dot = typeof path === 'string' ? path.indexOf('.') : -1;
 
-  if (typeof object !== 'object' || object === null) {
+  if (typeof object !== 'object' || object === null || object === undefined) {
     return fallback || object;
   }
 
@@ -15,7 +15,8 @@ function getv(object, path, fallback) {
     if (path.length && path in object) {
       return object[path];
     }
-    return undefined;
+
+    return fallback || undefined;
   }
 
   return getv(object[path.substr(0, dot)], path.substr(dot + 1), fallback);
