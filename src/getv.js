@@ -16,7 +16,7 @@ function getv(object, path, fallback) {
       return object[path];
     }
 
-    return fallback || undefined;
+    return fallback;
   }
 
   return getv(object[path.substr(0, dot)], path.substr(dot + 1), fallback);
