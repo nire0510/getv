@@ -1,9 +1,11 @@
 const assert = require('assert');
+const { describe, it } = require('mocha');
 const getv = require('../dist/getv.min');
 
 const object = {
   foo: {
     bar: 1,
+    ban: 0,
   },
   baz: 5,
   lor: ['mir', 'dal'],
@@ -26,8 +28,9 @@ describe('getv', () => {
     assert.equal(getv(object, 'none.bar.nor.gar'), undefined);
   });
 
-  it('should be able to return false', () => {
-    assert.equal(getv(object, 'tar'), false);
+  it('should be able to return falsy values', () => {
+    assert.equal(getv(object, 'tar', true), false);
+    assert.equal(getv(object, 'foo.ban', true), 0);
   });
 
   it('should return a default value when path is incorrect and a default value is specified', () => {
