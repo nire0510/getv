@@ -17,6 +17,10 @@ const object = {
   },
   baz: 5,
   lor: ['mir', 'dal'],
+  boo: [
+    { id: 1 },
+    { id: 2 },
+  ],
 };
 
 getv(object, 'none.bar');             // => undefined
@@ -28,4 +32,6 @@ getv(object, 'baz');                  // => 5
 getv(object, 'foo.bar');              // => 1
 
 getv(object, 'lor.1');                // => 'dal'
+
+getv(object, 'boo.id');                // => [1, 2]
 ```

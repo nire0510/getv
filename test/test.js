@@ -10,6 +10,10 @@ const object = {
   baz: 5,
   lor: ['mir', 'dal'],
   tar: false,
+  boo: [
+    { id: 1 },
+    { id: 2 },
+  ],
 };
 
 const array = [
@@ -51,6 +55,12 @@ describe('getv', () => {
 
   it('should ignore default value if path is correct', () => {
     assert.equal(getv(object, 'lor.1'), 'dal');
+  });
+
+  it('should return all id values in array properties', () => {
+    assert.equal(getv(object, 'boo.id', []).length, 2);
+    assert.equal(getv(object, 'boo.id', [])[0], 1);
+    assert.equal(getv(object, 'boo.id', [])[1], 2);
   });
 
   it('should accept array', () => {

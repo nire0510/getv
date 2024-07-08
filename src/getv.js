@@ -12,14 +12,19 @@ function getv(object, path, fallback) {
   }
 
   if (dot === -1) {
-    if (path.length && path in object) {
-      return object[path];
+    if (path.length) {
+      if (path in object) {
+        return object[path];
+      }
+      if (Array.isArray(object)) {
+        return object.map((item) => item[path] || fallback);
+      }
     }
 
     return fallback;
   }
 
-  return getv(object[path.substr(0, dot)], path.substr(dot + 1), fallback);
+  return getv(object[path.substring(0, dot)], path.substring(dot + 1), fallback);
 }
 
 module.exports = getv;
