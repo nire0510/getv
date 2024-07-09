@@ -4,8 +4,8 @@
   "description": "Get a value from an object by its path",
   "main": "dist/getv.min.js",
   "scripts": {
-    "test": "mocha",
-    "build": "uglifyjs src/getv.js --o dist/getv.min.js"
+    "test": "npm run build ;mocha",
+    "build": "uglifyjs src/getv.js > dist/getv.min.js"
   },
   "keywords": [],
   "author": "Nir Elbaz <nire0510@gmail.com> (http://nirelbaz.com)",

@@ -16,15 +16,17 @@ function getv(object, path, fallback) {
       if (path in object) {
         return object[path];
       }
-      if (Array.isArray(object)) {
-        return object.map((item) => item[path] || fallback);
+
+      if (Array.isArray(object) && object.some((o) => Object.keys(o).includes(path))) {
+        return object.map((item) => item[path]);
       }
     }
 
     return fallback;
   }
 
-  return getv(object[path.substring(0, dot)], path.substring(dot + 1), fallback);
+  // eslint-disable-next-line max-len
+  return getv(Array.isArray(object) && !/^\d+$/.test(path.substring(0, dot)) ? object.map((item) => item[path.substring(0, dot)]) : object[path.substring(0, dot)], path.substring(dot + 1), fallback);
 }
 
 module.exports = getv;

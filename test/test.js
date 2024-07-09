@@ -14,6 +14,10 @@ const object = {
     { id: 1 },
     { id: 2 },
   ],
+  bam: [
+    { kip: { tor: 1 } },
+    { kip: { tor: 2 } },
+  ],
 };
 
 const array = [
@@ -61,6 +65,10 @@ describe('getv', () => {
     assert.equal(getv(object, 'boo.id', []).length, 2);
     assert.equal(getv(object, 'boo.id', [])[0], 1);
     assert.equal(getv(object, 'boo.id', [])[1], 2);
+
+    assert.equal(getv(object, 'bam.kip', []).length, 2);
+    assert.equal(getv(object, 'bam.kip.tor', [])[0], 1);
+    assert.equal(getv(object, 'bam.kip.tor', [])[1], 2);
   });
 
   it('should accept array', () => {
